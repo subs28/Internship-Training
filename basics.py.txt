@@ -1,0 +1,195 @@
+# Q1
+def triangle (a,b,c):
+    if ((a==b) and (b==c)):
+        print("Equilateral")
+    elif ((a==b) or (b==c) or (c==a)):
+        print("Isoceles")
+    else:
+        print("Scalene")
+
+#Q2
+def days(m,y):
+    d31=[1,3,5,7,8,10,12]
+    d30=[4,6,11,9]
+    if (m in d31):
+        return 31 
+    elif (m in d30):
+        return 30
+    elif (m==2):
+        if (((y%4==0) and (y%100!=0)) or (y%400==0)):
+            return 29
+        else:
+           return 28
+          
+#Q3
+def reverse(n):
+    cn=n
+    length=n1=0
+    while cn>0:
+        length+=1
+        cn=cn//10
+    while length>0:
+        k=n%10
+        n1+=k*10**(length-1)
+        length=length-1
+        n=n//10
+    return n1
+
+#Q4
+def GP(a,r,n):
+    return a*r**(n-1)
+
+#Q5
+def palindrome(s):
+    s=s.replace(" ",'')
+    l=len(s)
+    revs=""
+    while l>0:
+        revs+=s[l-1]
+        l=l-1
+    if (revs==s):
+        return "Palindrome"
+    else:
+        return "Not palindrome"
+
+#Q6
+def armstrong(n):
+    n1=n
+    check=0
+    while (n1>0):
+        check+=(n1%10)**3
+        n1=n1//10
+    if (n==check):
+        return "Armstrong number"
+    else:
+        return "Not an armstrong number"
+
+#Q7
+def lin(arr,x):
+    c=0
+    for i in range (0,len(arr)):
+        if (x==arr[i]):
+            c=1
+            return i
+            break
+    if (c==0):
+        return "Not in the given array"
+
+#Q8
+def fibonacci(n):
+    a=0
+    b=c=1
+    print("The fibbonacci series upto ",n," terms is:\n")
+    print(a,"\n",b,sep='')
+    while (c<=n-2):
+        temp=a
+        a=b
+        b=b+temp
+        print(b)
+        c+=1
+
+#Q9
+def nAlpha(s):
+    c=0
+    for i in range (0,len(s)):
+        if ( ( (ord(s[i])>=65) and (ord(s[i])<=90) )  or ( (ord(s[i])>=97) and (ord(s[i])<=122) ) ):
+            c+=1
+    return c
+
+#Q10
+def anagram(s1,s2):
+    l1=[]
+    l2=[]
+    c=1
+    if (len(s1)==len(s2)):
+        for i in range (0,len(s1)):
+            l1.append(s1[i])
+            l2.append(s2[i])
+        l1.sort()
+        l2.sort()
+        if (l1==l2):
+            c=0
+            return "The two strings are anagrams of each other"
+    if (c==1):
+        return "The two strings are not anagrams of each other"
+
+#Q11
+def revarr(l):
+    x=len(l)
+    lrev=[]
+    for i  in range (0,x):
+        lrev.append(l[x-1-i])
+    return lrev
+
+#Q12
+def second(l):
+    first=second=-21448858
+    for i in range (0,len(l)):
+        if ((l[i]>second) and (l[i]<first)):
+            second=l[i]
+        elif ((l[i]>second) and (l[i]>first)):
+            second=first
+            first=l[i]
+    if second==-21448858 :
+        return "All the numbers in the list are same . So there is no second largest number"
+    else:
+        return second
+        
+#Q13
+def single(l):
+    cpl=[]
+    for i in range (len(l)):
+        if l[i] not in cpl:
+            c=1
+            cpl.append(l[i])
+            for j in range (i+1,len(l)):
+                if l[i]==l[j]:
+                    c+=1
+            if c==1:
+                return(l[i])
+
+#Q14
+def maxCash(n,k):
+    if (n%2==0):
+        return (n/2*k)
+    else:
+        return (n//2+1)*k
+
+#Q15
+def limits(l,ll,ul):
+    check=0
+    for i in range (ll,ul+1):
+        if i in l:
+            check=1
+        else:
+            check=-1
+            break
+    if check==1:
+        print("True")
+    elif check==-1:
+        print("False")
+        
+#Q16
+def fine (car,fine,date,n):
+    if (len(car)==n) and (len(fine)==n) :
+        ans=0
+        if date%2==0:
+            for i in range (n):
+                if car[i]%2==1:
+                    ans+=fine[i]
+        else:
+            for i in range (n):
+                if car[i]%2==0:
+                    ans+=fine[i]
+    return(ans)
+
+#Q17
+def lsum(l):
+    sodd=seven=0
+    for i in range (len(l)):
+        if (i+1)%2==0:
+            seven+=l[i]
+        else:
+            sodd+=l[i]
+    print("Even:",seven)
+    print("Odd:",sodd)
